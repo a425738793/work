@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{a}}<br />{{b}}<br />{{obj.name}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el:"#box",
+			data:{
+				stark:'shudong',
+				a:'111',
+				b:'222',
+				obj:{
+					name:'stark',
+					age:18
+				}
+			},
+			
+		})
+		vm.$watch('obj',function(){
+			alert(this.obj.name);
+//			this.b = this.a+100;
+		},{deep:true})
+		document.onclick = function(){
+			vm.obj.name ='shudong';
+		}
+	</script>
+</html>
+

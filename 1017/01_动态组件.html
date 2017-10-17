@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<component :is="stark"></component>
+			<hello></hello>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el:'#box',
+			data:{
+				stark:'hello'
+			},
+			components:{
+				'hello':{
+					template:'<h2><span>我是hello组件</span></h2>'
+				},
+				'world':{
+					template:'<h2>我是world组件</h2>'
+				}
+			}
+		})
+	</script>
+</html>

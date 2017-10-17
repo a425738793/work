@@ -17,17 +17,18 @@
 			Vue.component('stark',{
 				data:function(){
 					return {
-						show:false
+						show:123
 					}
 				},
-				template: `
-					<div>
-						<h1> stark wang </h1>
-					</div>
-				`
+				template: 
+					'<div><h1> stark wang {{show}} </h1></div>'
+				
 			})
 			new Vue({
-				el:"#box1"
+				el:"#box1",
+				data:{
+					show: 1234
+				}
 			})
 		</script>
 			

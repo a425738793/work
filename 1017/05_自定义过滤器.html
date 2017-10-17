@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{stark | hello}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.filter('hello',function(input){
+			return input < 10 ? '0'+input :''+input
+		})
+		let vm = new Vue({
+			el:'#box',
+			data:{
+				stark: 8
+			}
+		})
+	</script>
+</html>
