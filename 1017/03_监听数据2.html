@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{a}}<br>{{b}}
+			<button @click="change">改变</button>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		let vm = new Vue({
+			
+			el:'#box',
+			data:{
+				a:111,
+				b:222
+			},
+			methods:{
+				change(){
+					this.a = 333;
+				}
+				
+			}
+		})
+		vm.$watch('a',function(newVal,oldVal){
+			
+			console.log(newVal)
+			console.log(oldVal)
+			this.b = this.a + 100;
+			
+		})
+		
+	</script>
+</html>

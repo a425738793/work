@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{obj.name}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el:'#box',
+			data:{
+				obj:{
+					name:'zhangsan'
+				}
+			}
+		})
+		vm.$watch('obj',function(){
+			alert(this.obj.name);
+		},{deep:true})
+		document.onclick = function(){
+			vm.obj.name = 'lisi';
+		}
+	</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+		<link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div id="box">
+			<my-button text="复制"></my-button>
+			<my-button text="剪切"></my-button>
+			<my-button text="粘贴"></my-button>
+			<my-button text="选择"></my-button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+		let vm = new Vue({
+			
+			el:'#box',
+			components:{
+				'my-button':{
+					template:'<button class="ui teal button">{{text}}</button>',
+					props:['text']
+				}
+			}
+			
+		})
+		
+	</script>
+</html>

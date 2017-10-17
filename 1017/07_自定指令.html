@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<div v-red>
+				{{name}}
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.directive('red',{
+			
+			bind:function(el){
+				el.style.background = 'red';
+			}
+			
+		})
+		let vm = new Vue({
+			el:'#box',
+			data:{
+				name:'stark'
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<style type="text/css">
+			#box div{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+			}
+			#box .hello{
+				background-color: red;
+				top: 0;
+				left: 0;
+			}
+			#box .world{
+				background-color: blue;
+				top: 0;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="hello" v-drag></div>
+			<div class="world" v-drag></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.directive('drag',{
+			
+			bind:function(el){
+				el.onmousedown= function(event){
+					console.log($(el).css('left'));
+					let left = parseInt($(el).css('left'));
+					let top = parseInt($(el).css('top'));
+					
+					let delaX = event.clientX-el.offsetLeft;
+					let delaY = event.clientY-el.offsetTop;
+					console.log(delaX);
+					console.log(delaY);
+					document.onmousemove = function(event){
+						
+						el.style.left = (event.clientX-delaX) +'px';
+						
+						el.style.top = (event.clientY-delaY) +'px';
+					}
+					el.onmouseup = function(){
+						document.onmousemove = null;
+					}
+					return false;
+				}
+			}
+			
+		})
+		let vm = new Vue({
+			el:"#box",
+		})
+	</script>
+</html>

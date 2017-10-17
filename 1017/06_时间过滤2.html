@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{dates | date}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.filter('date',function(dates){
+			let oDate = new Date(dates)
+			return oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+' '
+				+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+			
+		})
+		
+		let vm = new Vue({
+			el: '#box',
+			data:{
+				dates: Date.now()
+			}
+		})
+	</script>
+</html>

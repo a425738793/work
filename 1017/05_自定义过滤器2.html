@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{num | fnum}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.filter('fnum',function(num){
+			return num < 10 ? '0' + num : '' + num;
+		})
+		let vm = new Vue({
+			
+			el:'#box',
+			data:{
+				num: 8
+			}
+			
+		})
+	</script>
+</html>

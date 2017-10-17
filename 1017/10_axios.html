@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+   		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+		<script src="https://cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
+	</head>
+	<body>
+		<div id="box">
+	        <button @click="getGoods">
+	            获取商品 
+	        </button>
+	
+	        <div v-for="item in goodsList">
+	            <div>商品名字:{{item.goods_name}}</div>
+	            <div><img :src="item.goods_thumb" style="width:100px" alt=""></div>
+	        </div>
+	
+	    </div>
+	</body>
+	<script type="text/javascript">
+		new Vue({
+            el: '#box',
+            data: {
+                goods_name: '',
+                img: '',
+                goodsList: {}
+            },
+            methods: {
+                getGoods() {
+                    axios.get('http://h6.duchengjiu.top/shop/api_goods.php')
+                        .then(res => {
+                            console.log(res);
+                            let data = res.data.data;
+                            this.goodsList = data;
+                        })
+                }
+            }
+        })
+	</script>
+</html>

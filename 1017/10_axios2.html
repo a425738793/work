@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+   		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+		<script src="https://cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
+		
+	</head>
+	<body>
+		<div id="box">
+			githubId: <input type="text" v-model="uid"/>
+			<button @click="getGitUser(uid)">获取指定的github帐号信息</button>
+			<button @click="post">post</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el:"#box",
+			data:{
+				uid:''
+			},
+			methods:{
+				getGitUser:function(){
+					axios.get(`https://api.github.com/users/${vm.uid}`)
+					.then(res => {
+						console.log(res);
+					})
+				},
+				post:function(){
+					axios.post('http://easy-mock.com/mock/59664d4d58618039284c7710/example/goods/list')
+					.then(res=>{
+						console.log(res);
+					})
+				}
+			}
+		})
+	</script>
+</html>
