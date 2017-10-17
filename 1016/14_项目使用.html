@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+	
+	</head>
+	<body>
+		<div id="box">
+			<navs>商品列表首页</navs>
+		</div>
+		<script>
+			
+			let vm = new Vue({
+				el:'#box',
+				components:{
+					'navs':{
+						template:
+						`
+							<div>
+								<span>首页</span>
+								<slot></slot>
+							</div>
+						`
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
