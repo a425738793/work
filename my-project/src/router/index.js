@@ -6,6 +6,9 @@ import About from '@/components/About'
 import Blog from '@/components/Blog'
 import Info from '@/components/Info'
 import Stark from '@/components/Stark'
+import Hero from '@/views/hero'
+import Daily from '@/views/daily'
+import Vuex from '@/components/vuex'
 
 Vue.use(Router)
 const User = {
@@ -36,9 +39,24 @@ export default new Router({
       component: HelloWorld
     },
     {
+      path: '/hero',
+      name: 'Hero',
+      component: Hero
+    },
+    {
+      path: '/daily',
+      name: 'Daily',
+      component: Daily
+    },
+    {
       path: '/work',
       name: 'Work',
       component: Work
+    },
+    {
+      path: '/vuex',
+      name: 'Vuex',
+      component: Vuex
     },
     {
       path: '/about',

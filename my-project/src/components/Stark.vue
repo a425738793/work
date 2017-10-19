@@ -2,7 +2,7 @@
 	<div>
 		我是stark组件
 		
-		<router-link :to="'/stark/' + item.name" v-for="item in infoList">{{item.age}} </router-link>
+		<router-link :to="'/stark/' + item.name" v-for="item in infoList" :key="item.id">{{item.age}} </router-link>
 	    <p>name:{{userInfo.name}}</p>
 		<p>age:{{userInfo.age}}</p>
 	</div>
